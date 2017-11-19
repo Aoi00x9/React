@@ -30,6 +30,11 @@ class Main extends React.Component {
             .catch(err => console.error('Something went wrong.'))
     }
 
+    signout = event => {
+        localStorage.clear()
+        this.props.history.replace('/')
+    }
+
     componentDidMount() {
         this.getPosts()
     }
@@ -73,7 +78,7 @@ class Main extends React.Component {
                 }
 
 
-                <button className="ui button">Sign out</button>
+                <button onClick={this.signout} className="ui button">Sign out</button>
             </div>
         )
     }
